@@ -30,17 +30,29 @@ public class Main {
         System.out.println("0. " + menuList.get(menuList.size() - 1).getName() + " |" + menuList.get(menuList.size() - 1).getText());
 
         while (true) {
-            // 숫자를 입력 받기
-            int inputNum = scanner.nextInt();
+            try {
+                // 숫자를 입력 받기
+                int inputNum = scanner.nextInt();
 
-            // 입력된 숫자에 따른 처리
-            // 프로그램을 종료
-            if (inputNum == 0) {
-                System.out.println("프로그램을 종료합니다.");
-                break;
+                // 입력된 숫자에 따른 처리
+                // 프로그램을 종료
+                if (inputNum == 0) {
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+                }
+
+                // 0보다 작거나 번호보다 큰 경우
+                if(inputNum < 0 || inputNum >= menuList.size()){
+                    System.out.println("유효하지 않은 번호를 입력하셨습니다.");
+                    break;
+                }
+
+                // 선택한 메뉴 : 이름, 가격, 설명
+                System.out.println(menuList.get(inputNum - 1).getName() + " |" + menuList.get(inputNum - 1).getPrice() + " |" + menuList.get(inputNum - 1).getText());
+            }catch (NumberFormatException e){
+                //choiceMenu가 문자를 입력받는경우
+                System.out.println("숫자가 아닙니다.");
             }
-            // 선택한 메뉴 : 이름, 가격, 설명
-            System.out.println(menuList.get(inputNum - 1).getName() + " |" + menuList.get(inputNum - 1).getPrice() + " |" + menuList.get(inputNum - 1).getText());
         }
     }
 }
