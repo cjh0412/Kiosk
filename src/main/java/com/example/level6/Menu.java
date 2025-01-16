@@ -48,6 +48,7 @@ public class Menu {
         subCategory.stream()
                 .forEach(menuItem ->
                         System.out.println(subCategory.indexOf(menuItem)+1 + ". " + menuItem.toString()));
+        System.out.println("0. 뒤로가기");
     }
 
 }
