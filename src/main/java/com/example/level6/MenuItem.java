@@ -23,9 +23,10 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", text='" + text + '\''
-                ;
+        // 고정 폭 설정
+        int width = 15;
+
+        return String.format("%-" + width + "s| %-" + width + "s| %-" + width + "s'",
+                name, price, text);
     }
 }

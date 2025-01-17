@@ -22,13 +22,19 @@ public class Order {
 
     // 가장 최근 장바구니에 저장된 메뉴 명 출력
     public void printMenuName(MenuItem menuItem) {
-        System.out.println(menuItem.getName() + " 장바구니에 추가되었습니다.");
+        System.out.println(menuItem.getName() + " 장바구니에 추가되었습니다." + "\n");
     }
 
     // 전체 장바구니 목록 출력
     public void printTotalOrder() {
+        // 고정 폭 설정
+        int width = 15;
+        System.out.println("\n" + "[ Orders ]");
         getMenuItemMap().forEach((menuItem, quantity)
-                -> System.out.println(menuItem.toString() + " 수량 : " + quantity));
+                -> System.out.println(
+                        String.format("%-" + width + "s| 수량:  %-" + (width-5) + "s| %-" + width + "s| %-" + width + "s",
+                                menuItem.getName(), quantity , menuItem.getPrice(), menuItem.getText())));
+        System.out.println();
     }
 
     // 주문 총액 체크
@@ -44,21 +50,33 @@ public class Order {
 
     // 할인율 추가
     public void printDiscountInfo() {
-        System.out.println("할인 정보를 입력해주세요");
+
+        System.out.println("\n" +"할인 정보를 입력해주세요");
         for (DiscountType value : DiscountType.values()) {
             System.out.println(value.ordinal() + 1 + ". " + value.toString());
         }
     }
 
-    // orderMap
-    public void isEmptyOrderMap(List<Menu> mainCategory) {
+    // 장바구니 값 존재시
+    public void isEmptyOrderMap(int index) {
         if (!getMenuItemMap().isEmpty()) {
-            int index = mainCategory.size() + 2;
-
-            System.out.println("[ ORDER MENU ]");
-            System.out.println(index - 1 + ". Orders  | 장바구니를 확인 후 주문합니다.");
-            System.out.println(index + ". Cancel  | 장바구니 주문을 취소합니다.");
+            System.out.println("\n" + "[ ORDER MENU ]");
+            System.out.println(index + 1 + ". Orders  | 장바구니를 확인 후 주문합니다.");
+            System.out.println(index + 2 + ". Cancel  | 장바구니 주문을 취소합니다.");
         }
+    }
+
+    // 주문완료
+    public void completeOrder(){
+        menuItemMap.clear();
+    }
+
+    // 주문취소
+    public void cancelOrder(){
+        // 키값 찾기
+        MenuItem item = menuItemMap.keySet().stream().reduce((a, b) ->b ).orElse(null);
+        System.out.println("가장 마지막에 추가하신 메뉴 " + item + "가 삭제되었습니다.");
+        menuItemMap.remove(item);
     }
 
 }
