@@ -16,7 +16,7 @@ public class Main {
         drinks.addMenuItemList(new MenuItem("Lemonade", "W 3.9", "매장에서 직접 만드는 상큼한 레몬에이드"));
         drinks.addMenuItemList(new MenuItem("FreshBrewedIcedAde", "W 3.4", "직접 유기농 홍차를 우려낸 아이스티"));
         drinks.addMenuItemList(new MenuItem("BottleWater", "W 1.5", "지리산 암반내수층으로 만든 생수"));
-        drinks.addMenuItemList( new MenuItem("Fifty", "W 3.5", "레몬에이드와 아이스티의 만남"));
+        drinks.addMenuItemList(new MenuItem("Fifty", "W 3.5", "레몬에이드와 아이스티의 만남"));
 
         // add 함수를 통해 new MenuItem(이름, 가격, 설명) List에 삽입
         Menu deserts = new Menu("Desert");

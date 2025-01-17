@@ -1,8 +1,8 @@
 package com.example.level6;
 
 public enum DiscountType {
-    NATIONAL_MERIT( "국가유공자", 0.1),
-    ARMY( "군인", 0.05),
+    NATIONAL_MERIT("국가유공자", 0.1),
+    ARMY("군인", 0.05),
     STUDENT("학생", 0.03),
     ORDINARY("일반", 0);
 
@@ -24,11 +24,11 @@ public enum DiscountType {
 
     @Override
     public String toString() {
-        return type + ": " + (int)(discount*100) +"%";
+        return type + ": " + (int) (discount * 100) + "%";
     }
 
     // 할인율 체크
     public static double chkDiscount(int index) {
-        return DiscountType.values()[index-1].getDiscount();
+        return DiscountType.values()[index - 1].getDiscount();
     }
 }

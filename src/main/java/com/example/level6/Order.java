@@ -1,7 +1,6 @@
 package com.example.level6;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Order {
@@ -32,8 +31,8 @@ public class Order {
         System.out.println("\n" + "[ Orders ]");
         getMenuItemMap().forEach((menuItem, quantity)
                 -> System.out.println(
-                        String.format("%-" + width + "s| 수량:  %-" + (width-5) + "s| %-" + width + "s| %-" + width + "s",
-                                menuItem.getName(), quantity , menuItem.getPrice(), menuItem.getText())));
+                String.format("%-" + width + "s| 수량:  %-" + (width - 5) + "s| %-" + width + "s| %-" + width + "s",
+                        menuItem.getName(), quantity, menuItem.getPrice(), menuItem.getText())));
         System.out.println();
     }
 
@@ -51,7 +50,7 @@ public class Order {
     // 할인율 추가
     public void printDiscountInfo() {
 
-        System.out.println("\n" +"할인 정보를 입력해주세요");
+        System.out.println("\n" + "할인 정보를 입력해주세요");
         for (DiscountType value : DiscountType.values()) {
             System.out.println(value.ordinal() + 1 + ". " + value.toString());
         }
@@ -67,16 +66,15 @@ public class Order {
     }
 
     // 주문완료
-    public void completeOrder(){
+    public void completeOrder() {
         menuItemMap.clear();
     }
 
     // 주문취소
-    public void cancelOrder(){
+    public void cancelOrder() {
         // 키값 찾기
-        MenuItem item = menuItemMap.keySet().stream().reduce((a, b) ->b ).orElse(null);
+        MenuItem item = menuItemMap.keySet().stream().reduce((a, b) -> b).orElse(null);
         System.out.println("가장 마지막에 추가하신 메뉴 " + item + "가 삭제되었습니다.");
         menuItemMap.remove(item);
     }
-
 }

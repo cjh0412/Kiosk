@@ -9,11 +9,11 @@ public class Menu {
     private List<Menu> mainList = new ArrayList<>();
     private String mainMenu;
 
-    Menu(List<Menu> mainList){
+    Menu(List<Menu> mainList) {
         this.mainList = mainList;
     }
 
-    Menu(String mainMenu){
+    Menu(String mainMenu) {
         this.mainMenu = mainMenu;
     }
 
@@ -28,27 +28,26 @@ public class Menu {
     }
 
     // 서브 메뉴 정보 리스트 저장
-    public void addMenuItemList(MenuItem subMenu){
+    public void addMenuItemList(MenuItem subMenu) {
         menuItemList.add(subMenu);
     }
 
     // 메인메뉴 리스트 출력
-    public void printMainMenu(){
+    public void printMainMenu() {
         mainList.stream()
                 .forEach(menu ->
-                        System.out.println(mainList.indexOf(menu)+1 +". " + menu.mainMenu));
+                        System.out.println(mainList.indexOf(menu) + 1 + ". " + menu.mainMenu));
     }
 
     // 서브메뉴 리스트 출력
     public void printSubMenu(int choiceCategory) {
         // [ main카데고리 + 메뉴 ] 출력
-        System.out.println("[ "+mainList.get(choiceCategory-1).getMainMenu().toUpperCase()+" MENU ]");
+        System.out.println("[ " + mainList.get(choiceCategory - 1).getMainMenu().toUpperCase() + " MENU ]");
         // 리스트 출력
         List<MenuItem> subCategory = mainList.get(choiceCategory - 1).getMenuItemList();
         subCategory.stream()
                 .forEach(menuItem ->
-                        System.out.println(subCategory.indexOf(menuItem)+1 + ". " + menuItem.toString()));
+                        System.out.println(subCategory.indexOf(menuItem) + 1 + ". " + menuItem.toString()));
         System.out.println("0. 뒤로가기");
     }
-
 }
