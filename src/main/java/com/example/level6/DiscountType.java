@@ -1,8 +1,5 @@
 package com.example.level6;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public enum DiscountType {
     NATIONAL_MERIT( "국가유공자", 0.1),
     ARMY( "군인", 0.05),
